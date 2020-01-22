@@ -67,7 +67,7 @@ class TestStringMethods(TestCase):
         assert_almost_equal(result, expected_clickprob, 15)
 
     def test_generate_example(self):
-        lambdas = [lambda: 0.2, lambda: 0.6, lambda:0.81]
+        lambdas = [lambda: 0.2, lambda: 0.6, lambda: 0.81]
         anchor_prob = {0: 0.4, 1: 0.2, 3: 0.4}
         context_prob = {0: 0.5, 1: 0.5}
         anchor_transition = {0: [0.5, 0.4, 0.1], 1: [], 2: []}
@@ -86,3 +86,14 @@ class TestStringMethods(TestCase):
 
         expected = {'anchor': 0, 'context': 1, 'click_position': 2, 'reco': [2, 1, 0]}
         self.assertDictEqual(result, expected)
+
+
+        # Was erwarten wir noch?:
+        # {'anchor_details': {'image': [1., 1., 1.], 'label': [1., 0., 0., 0.], 'lbl_key': 0},
+        #  'anchor': 0,
+        #  'context': 1,
+        #  'context_vec': [0., 1.],
+        #  'click_position': 2,
+        #  'reco': [2, 1, 0],
+        #  'detailed_reco': [
+        #      {'image': [1., 1., 1.], 'label': [1., 0., 0., 0.], 'lbl_key': 0, 'context': [0., 0., 0., 1., 0.]}]}
