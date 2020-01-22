@@ -4,6 +4,7 @@ from src.seperate import seperate_by_label
 
 
 class TestInput(TensorFlowTestCase):
+
     def test_seperate_data(self):
         data = {'image': [[1., 1., 1.],
                           [2., 2., 2.],

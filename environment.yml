@@ -1,4 +1,4 @@
-name: mnistUplift
+name: dummi-mnist
 channels:
   - conda-forge
 dependencies:
