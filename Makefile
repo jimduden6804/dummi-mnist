@@ -9,13 +9,13 @@ install-gpu:
 	conda env update --file ./gpu_environment.yml
 
 test:
-	conda activate dummi-mnist && pytest
+	source activate dummi-mnist && pytest
 
 run:
-	conda activate dummi-mnist && python -m src.main 'test/resources/dataset' 'model' 0
+	source activate dummi-mnist && python -m src.main 'test/resources/dataset' 'model' 0
 
 run-gpu:
-	conda activate dummi-mnist && optirun python -m src.main 'test/resources/dataset' 'model' 0
+	source activate dummi-mnist && optirun python -m src.main 'test/resources/dataset' 'model' 0
 
 clean:
 	find . -name '*.pyc' -exec rm -f {} +
