@@ -55,17 +55,16 @@ def generate_example(anchor_prob=ANCHOR_PROB,
     mask = keep_position_mask(number_recos, reco_lengths, sample_fn)
     seen_click_prob = [p * m for p, m in list(zip(click_prob, mask))]
     seen_position = sample_index(seen_click_prob, rand)
-    return {'anchor': anchor,
-            'context': context,
+    return {'anchor': int(anchor),
+            'context': int(context),
             'reco': reco,
-            'click_position': click_position,
-            'seen_click_position': seen_position,
+            'click_position': int(click_position),
+            'seen_click_position': int(seen_position),
             'seen_mask': mask}
 
 
 def to_context_vec(context, num_contexts):
     contexts = list(range(num_contexts))
-    print(contexts)
     return [1. if ctx in set([context]) else 0. for ctx in contexts]
 
 
@@ -89,3 +88,4 @@ def join_example_with_data(example, num_contexts, seperated_labels, sample_fn=ra
         'anchor_label': anchor_data['label'],
         'detailed_reco': detailed_reco})
     return example
+

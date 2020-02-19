@@ -1,19 +1,18 @@
 from tensorflow.python.framework.test_util import TensorFlowTestCase
-
+import numpy as np
 from src.seperate import seperate_by_label
 
 
 class TestInput(TensorFlowTestCase):
-
     def test_seperate_data(self):
-        data = {'image': [[1., 1., 1.],
-                          [2., 2., 2.],
-                          [3., 3., 3.],
-                          [1., 1., 1.]],
-                'label': [[1., 0., 0., 0.],
-                          [0., 1., 0., 0.],
-                          [0., 0., 1., 0.],
-                          [1., 0., 0., 0.]]}
+        data = {'image': np.array([[1., 1., 1.],
+                                   [2., 2., 2.],
+                                   [3., 3., 3.],
+                                   [1., 1., 1.]]),
+                'label': np.array([[1., 0., 0., 0.],
+                                   [0., 1., 0., 0.],
+                                   [0., 0., 1., 0.],
+                                   [1., 0., 0., 0.]])}
 
         seperated_data = {0: [{'image': [1., 1., 1.], 'label': [1., 0., 0., 0.], 'lbl_key': 0},
                               {'image': [1., 1., 1.], 'label': [1., 0., 0., 0.], 'lbl_key': 0}],
