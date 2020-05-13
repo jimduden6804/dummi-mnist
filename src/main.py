@@ -24,8 +24,8 @@ data_dir = f'{cwd}/data'
 path = f'{data_dir}/{job_name}-{version_str}'
 
 
-number_train_examples = 20_000
-number_test_examples = 5_000
+number_train_examples = 10000
+number_test_examples = 2500
 
 def create_directory(path):
     if os.path.exists(path):
